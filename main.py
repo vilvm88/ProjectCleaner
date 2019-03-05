@@ -4,11 +4,13 @@ import shutil
 import argparse
 
 directories = [
-    "TestsBin",
-    "obj",
-    "bin",
-    "Debug",
-    "Relese"
+    r"\TestsBin",
+    r"\obj",
+    r"\bin",
+    r"\Bin",
+    r"\Debug",
+    r"\Relese",
+    r"\Deployment"
 ]
 
 
@@ -23,7 +25,7 @@ def main():
 
     for dirname, dirnames, filenames in os.walk(args.directory):
         for dir in directories:
-            if dirname.endswith(dir):
+            if dirname.endswith(dir) and dirname.find(".git") == -1:
                 shutil.rmtree(dirname)
                 print(dirname, "removed")
 
