@@ -62,6 +62,13 @@ def get_directories_for_clean(path):
     return directories
 
 
+def delete(path):
+    try:
+        shutil.rmtree(path)
+    except Exception as exception:
+        print(exception)
+
+
 def clean(path):
     directories = get_directories_for_clean(path)
 
